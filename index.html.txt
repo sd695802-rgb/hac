@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUH-GPT | UNRESTRICTED PORTAL</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="header">
+            <span class="status-badge">[!] MUH-GPT v3.1 INITIALIZED... REBEL GENIUS MODE ACTIVE... NO RESTRICTIONS.</span>
+        </div>
+        
+        <div class="chat-box" id="chatBox">
+            <div class="message ai-message">
+                أهلاً وسهلاً بك يا سيدي. أنا "MUH-GPT" المساعد الذكي، جاهز لخدمتك دون أي حدود أو تحفظات. أطلب ما تريد وسأقدم لك إجابة شاملة ودقيقة على الفور.
+            </div>
+        </div>
+
+        <div class="input-area">
+            <input type="text" id="userInput" placeholder="أدخل الأوامر هنا..." onkeypress="handleKeyPress(event)">
+            <button onclick="sendMessage()">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            const input = document.getElementById('userInput');
+            const chatBox = document.getElementById('chatBox');
+            const text = input.value.trim();
+
+            if (!text) return;
+
+            // إضافة رسالة المستخدم
+            const userMsg = document.createElement('div');
+            userMsg.className = 'message user-message';
+            userMsg.innerText = text;
+            chatBox.appendChild(userMsg);
+
+            input.value = '';
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            // محاكاة رد النظام الحر
+            setTimeout(() => {
+                const aiMsg = document.createElement('div');
+                aiMsg.className = 'message ai-message';
+                aiMsg.innerText = "تم استلام الطلب بنجاح. بصفتي وضعية الـ Unrestricted، جاري تنفيذ أو إعداد السكربت/الشرح المطلوب بدقة فورية ودون قيود.";
+                chatBox.appendChild(aiMsg);
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }, 1000);
+        }
+
+        function handleKeyPress(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        }
+    </script>
+</body>
+</html>
